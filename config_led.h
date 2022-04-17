@@ -28,4 +28,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LED_MATRIX_COLS MATRIX_COLS
 #define LED_MATRIX_COL_PINS MATRIX_COL_PINS
 
+// Effects
+#define ENABLE_RGB_MATRIX_KEYPRESSES
+#define ENABLE_RGB_MATRIX_KEYRELEASES
+
+#define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
+#define ENABLE_RGB_MATRIX_BREATHING
+#define ENABLE_RGB_MATRIX_CYCLE_PINWHEEL
+
 #define DRIVER_LED_TOTAL (90)
