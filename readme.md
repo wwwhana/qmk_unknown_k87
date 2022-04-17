@@ -20,8 +20,9 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
  * PRODUCT ID `0x504C`
  * NO Bluetooth, No 2.4Ghz, Only USB C connect
  * Black or White shell
- * like under thumbnail
  * written on board `NK100-HC-VS V1 20201221`
+ * no reset button. required boot pin short with gnd 
+ * like under thumbnail
 ![ex_screenshot](./images/RGB-LED-87-PC-c.jpg_640x640.jpg)
 
 ## status
