@@ -24,6 +24,3 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
  * no reset button. required boot pin short with gnd 
  * like under thumbnail
 ![ex_screenshot](./images/RGB-LED-87-PC-c.jpg_640x640.jpg)
-
-## status
- working almost support SN32F248BF base board. but led working but is wip.
