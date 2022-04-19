@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	 TD(TD_RST),                KC_MSEL,      KC_VOLD, KC_VOLU,    KC_MUTE, KC_MSTP, KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MAIL,    KC_WHOM,    KC_CALC,    RGB_TOG,    NK_ON,      NK_OFF,     KC_SLEP,
 		_______,       PB_1,       PB_2,         PB_3,    PB_4,       PB_5,    PB_6,    PB_7,       PB_8,       PB_9,      PB_10,    RGB_SPD,    RGB_SPI,    _______,    RGB_M_P,    RGB_M_B,    RGB_M_R,
 		_______,    _______,  TO(_BASE),      _______, _______,      KC_TM, _______, _______,    _______,    _______,    DM_REC1,    DM_REC2,    DM_RSTP,    _______,    RGB_M_SW,   RGB_MOD,    RGB_RMOD,
-		_______,    _______,    _______,      _______,  T_GAME,    _______, _______, _______,    _______,    _______,    DM_PLY1,    DM_PLY2,                _______,
+		_______,    _______,    _______,      _______, _______,    _______, _______, _______,    _______,    _______,    DM_PLY1,    DM_PLY2,                _______,
 		_______,                _______,      _______, _______,    _______, _______, _______,    TO(_MAC),   _______,    _______,    TO(_NUM),               _______,                RGB_VAI,
 		_______,    _______,    _______,                                    _______,                                     _______,    _______,    _______,    _______,    RGB_HUD,    RGB_VAD,    RGB_HUI
     )
