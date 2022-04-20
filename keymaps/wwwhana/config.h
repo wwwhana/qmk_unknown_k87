@@ -1,5 +1,6 @@
 #pragma once
 
+#ifdef RGB_MATRIX_ENABLE
 // Additional Effects
 #define ENABLE_RGB_MATRIX_ALPHAS_MODS 
 #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN 
@@ -50,6 +51,8 @@
 #define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH 
 
 // END 
+
+#endif
 
 #define DYNAMIC_MACRO_NO_NESTING
 
