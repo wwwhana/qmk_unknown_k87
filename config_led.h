@@ -34,3 +34,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENABLE_RGB_MATRIX_CYCLE_PINWHEEL
 
 #define DRIVER_LED_TOTAL (90)
+
+#define LED_CAPS_LOCK_PIN B13
+#define LED_SCROLL_LOCK_PIN B14
+#define LED_PIN_ON_STATE 0
+
+
