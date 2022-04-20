@@ -62,6 +62,7 @@ void eeconfig_init_user(void) {
   user_config.mac_layer_enabled = false;
   user_config.num_layer_enabled = false;
   eeconfig_update_user(user_config.raw);
+  switchWinMacLayer();
 }
 
 
@@ -74,6 +75,7 @@ void dance_bootloader_finished(qk_tap_dance_state_t *state, void *user_data) {
 void dance_bootloader_reset(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         eeconfig_init();
+        eeconfig_init_user();
         // unregister_code16(KC_ESC);
     } else {
         reset_keyboard();
@@ -124,7 +126,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         // Let QMK process the KC_BSPC keycode as usual outside of shift
         return true;
-    }
+        }
+        case T_WM:
+        {
+        if (record->event.pressed) {
+            user_config.mac_layer_enabled = !user_config.mac_layer_enabled;
+            eeconfig_update_user(user_config.raw);
+            switchWinMacLayer();
+            return false;
+        }
+        }
+        case T_NUM:
+        {
+        if (record->event.pressed) {
+            user_config.num_layer_enabled = !user_config.num_layer_enabled;
+            eeconfig_update_user(user_config.raw);
+            if(user_config.num_layer_enabled) {
+                layer_on(_NUM);
+            } else {
+                layer_off(_NUM);
+                switchWinMacLayer();
+            }
+            return false;   
+        }
+        }
     }
     return true;
 };
