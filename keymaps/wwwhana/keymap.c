@@ -24,11 +24,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_NUM] = LAYOUT_k87_ansi(
 	    _______,                _______,    _______, _______,    _______, _______, _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
-	    _______,    KC_ACL0,    KC_ACL1,    KC_ACL2, _______,    _______, _______, _______,    _______,    _______,    KC_PAST,    KC_PMNS,    KC_PPLS,    KC_BSPC,    _______,    _______,    _______,
+	    _______,    KC_ACL0,    KC_ACL1,    KC_ACL2, _______,    _______, _______, _______,    _______,    KC_PDOT,    KC_PAST,    KC_PMNS,    KC_PPLS,    KC_BSPC,    _______,    _______,    _______,
 	    _______,    KC_BTN1,    KC_MS_U,    KC_BTN2, _______,    _______, _______, _______,    _______,      KC_P7,      KC_P8,      KC_P9,     KC_NUM,    KC_PSLS,    _______,    _______,    _______,
 	    _______,    KC_MS_L,    KC_MS_D,    KC_MS_R, _______,    _______, _______, _______,    _______,      KC_P4,      KC_P5,      KC_P6,                 KC_ENT,
-	    _______,                KC_WH_L,    KC_WH_U, KC_WH_R,    _______, _______, _______,    _______,      KC_P1,      KC_P2,      KC_P3,                _______,                _______,
-	    _______,    _______,    KC_WH_D,                                    KC_P0,                                     KC_PDOT,    _______,    _______,    _______,    _______,    _______,    _______
+	    KC_WH_L,                KC_WH_U,    KC_WH_D, KC_WH_R,    _______, _______, _______,    _______,      KC_P1,      KC_P2,      KC_P3,                _______,                _______,
+	    _______,    _______,    _______,                                    KC_P0,                                       KC_P0,    _______,    _______,    _______,    _______,    _______,    _______
     ),
     [_FN] = LAYOUT_k87_ansi(
 	     TK_RST,                KC_MSEL,      KC_VOLD, KC_VOLU,    KC_MUTE, KC_MSTP, KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MAIL,    KC_WHOM,    KC_CALC,    RGB_TOG,    NK_ON,      NK_OFF,     KC_SLEP,
