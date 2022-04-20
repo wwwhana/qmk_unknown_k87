@@ -1,19 +1,9 @@
 #include QMK_KEYBOARD_H
+#include "keymap_user.h"
 
 // windows task Manager
-#define KC_TM LCTL(LSFT(KC_ESC))
-enum {
-    TD_RST,
-    TD_COL,
-    TD_QUOT
-};
 
-enum layer_names {
-    _BASE,
-    _MAC,
-    _NUM,
-    _FN,
-};
+user_config_t user_config;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_k87_ansi(
@@ -30,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,     KC_Q,       KC_W,       KC_E,    KC_R,       KC_T,    KC_Y,    KC_U,       KC_I,       KC_O,       KC_P,       KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_DEL,     KC_END,     KC_PGDN,
         KC_CAPS,    KC_A,       KC_S,       KC_D,    KC_F,       KC_G,    KC_H,    KC_J,       KC_K,       KC_L,       TD(TD_COL), TD(TD_QUOT),            KC_ENT,
         KC_LSFT,                KC_Z,       KC_X,    KC_C,       KC_V,    KC_B,    KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,                KC_RSFT,                KC_UP,
-        KC_LCTL,    KC_LALT,    KC_LGUI,                                  KC_SPC,                                      KC_RGUI,    MO(_FN),    KC_RALT,    KC_RCTL,    KC_LEFT,    KC_DOWN,    KC_RIGHT
+        KC_LCTL,    KC_LOPT,    KC_LCMD,                                  KC_SPC,                                      KC_RCMD,    MO(_FN),    KC_ROPT,    KC_RCTL,    KC_LEFT,    KC_DOWN,    KC_RIGHT
     ),
     [_NUM] = LAYOUT_k87_ansi(
 	    _______,                _______,    _______, _______,    _______, _______, _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
@@ -45,10 +35,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		_______,       PB_1,       PB_2,         PB_3,    PB_4,       PB_5,    PB_6,    PB_7,       PB_8,       PB_9,      PB_10,    RGB_SPD,    RGB_SPI,    _______,    RGB_M_P,    RGB_M_B,    RGB_M_R,
 		_______,    _______,  TO(_BASE),      _______, _______,      KC_TM, _______, _______,    _______,    _______,    DM_REC1,    DM_REC2,    DM_RSTP,    _______,    RGB_M_SW,   RGB_MOD,    RGB_RMOD,
 		_______,    _______,    _______,      _______, _______,    _______, _______, _______,    _______,    _______,    DM_PLY1,    DM_PLY2,                _______,
-		_______,                _______,      _______, _______,    _______, _______, _______,    TO(_MAC),   _______,    _______,    TO(_NUM),               _______,                RGB_VAI,
+		_______,                _______,      _______, _______,    _______, _______, _______,       T_WM,   _______,     _______,      T_NUM,                _______,                RGB_VAI,
 		_______,    _______,    _______,                                    _______,                                     _______,    _______,    _______,    _______,    RGB_HUD,    RGB_VAD,    RGB_HUI
-    )
+    ),
 };
+
+void switchWinMacLayer(void) {
+    if(user_config.mac_layer_enabled) {
+        layer_state_set(_MAC);
+        layer_off(_BASE);
+        layer_on(_MAC);
+    } else {
+        layer_state_set(_BASE);
+        layer_off(_MAC);
+        layer_on(_BASE);
+    }
+}
+
+void keyboard_post_init_user(void) {
+  user_config.raw = eeconfig_read_user();
+  user_config.num_layer_enabled = false;
+  switchWinMacLayer();
+}
+
+void eeconfig_init_user(void) {
+  user_config.mac_layer_enabled = false;
+  user_config.num_layer_enabled = false;
+  eeconfig_update_user(user_config.raw);
+}
+
 
 void dance_bootloader_finished(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
@@ -71,7 +86,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_COL] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN),
     [TD_QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_DQT),
 };
-
 
 // Initialize variable holding the binary
 // representation of active modifiers.
