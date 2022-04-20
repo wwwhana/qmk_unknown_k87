@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
+#ifdef RGB_MATRIX_ENABLE
 // Backlight configuration
 #define BACKLIGHT_LEVELS 8
 
@@ -34,6 +35,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENABLE_RGB_MATRIX_CYCLE_PINWHEEL
 
 #define DRIVER_LED_TOTAL (90)
+#define RGB_DISABLE_WHEN_USB_SUSPENDED true
+
+#endif
 
 #define LED_CAPS_LOCK_PIN B13
 #define LED_SCROLL_LOCK_PIN B14
