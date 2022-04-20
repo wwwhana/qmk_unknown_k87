@@ -16,11 +16,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_MAC] = LAYOUT_k87_ansi(
         _______,                _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,    _______,    _______,    _______,    _______,   _______,
-        _______,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,    _______,    _______,    _______,    _______,   _______,
-        _______,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,    _______,    _______,    _______,    _______,   _______,
-        _______,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,  TD(TD_COL), TD(TD_QUOT),                _______,
-        _______,                _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,                _______,                _______,
-        _______,    KC_LOPT,    KC_LCMD,                                  _______,                                      KC_RCMD,     _______,    KC_ROPT,    KC_RCTL,    _______,    _______,    _______
+           TK_T,       TK_1,       TK_2,      TK_3,     TK_4,       TK_5,     TK_6,     TK_7,      TK_8,      TK_9,       TK_0,         TK_M,       TK_P,    _______,    _______,    _______,   _______,
+        _______,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,       TK_LBR,     TK_RBR,    _______,    _______,    _______,   _______,
+        _______,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,      TK_COL,     TK_QUOT,                _______,
+        _______,                _______,   _______,  _______,    _______,  _______,  _______,   _______,     TK_LT,      TK_DT,      _______,                _______,                _______,
+        _______,    KC_LOPT,    KC_LCMD,                                   _______,                                     KC_RCMD,     _______,    KC_ROPT,    KC_RCTL,    _______,    _______,    _______
     ),
     [_NUM] = LAYOUT_k87_ansi(
 	    _______,                _______,    _______, _______,    _______, _______, _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
@@ -31,9 +31,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	    _______,    _______,    KC_WH_D,                                    KC_P0,                                     KC_PDOT,    _______,    _______,    _______,    _______,    _______,    _______
     ),
     [_FN] = LAYOUT_k87_ansi(
-	 TD(TD_RST),                KC_MSEL,      KC_VOLD, KC_VOLU,    KC_MUTE, KC_MSTP, KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MAIL,    KC_WHOM,    KC_CALC,    RGB_TOG,    NK_ON,      NK_OFF,     KC_SLEP,
+	     TK_RST,                KC_MSEL,      KC_VOLD, KC_VOLU,    KC_MUTE, KC_MSTP, KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MAIL,    KC_WHOM,    KC_CALC,    RGB_TOG,    NK_ON,      NK_OFF,     KC_SLEP,
 		_______,       PB_1,       PB_2,         PB_3,    PB_4,       PB_5,    PB_6,    PB_7,       PB_8,       PB_9,      PB_10,    RGB_SPD,    RGB_SPI,    _______,    RGB_M_P,    RGB_M_B,    RGB_M_R,
-		_______,    _______,    _______,      _______, _______,      KC_TM, _______, _______,    _______,    _______,    DM_REC1,    DM_REC2,    DM_RSTP,    _______,    RGB_M_SW,   RGB_MOD,    RGB_RMOD,
+		_______,    _______,    _______,      _______, _______,       T_TM, _______, _______,    _______,    _______,    DM_REC1,    DM_REC2,    DM_RSTP,    _______,    RGB_M_SW,   RGB_MOD,    RGB_RMOD,
 		_______,    _______,    _______,      _______, _______,    _______, _______, _______,    _______,    _______,    DM_PLY1,    DM_PLY2,                _______,
 		_______,                _______,      _______, _______,    _______, _______, _______,       T_WM,    RGB_SAI,    RGB_SAD,      T_NUM,                _______,                RGB_VAI,
 		_______,    _______,    _______,                                    _______,                                     KC_LNG1,    _______,    KC_LNG2,    _______,    RGB_HUD,    RGB_VAD,    RGB_HUI
@@ -83,6 +83,27 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_RST] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_bootloader_finished, dance_bootloader_reset),
     [TD_COL] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN),
     [TD_QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_DQT),
+    [TD_LBR] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_LCBR),
+    [TD_RBR] = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, KC_RCBR),
+    [TD_LT] = ACTION_TAP_DANCE_DOUBLE(KC_COMMA, KC_LT),
+    [TD_DT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_GT),
+
+    [TD_TIL] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_TILD),
+
+    [TD_NUM1] = ACTION_TAP_DANCE_DOUBLE(KC_1, KC_EXLM),
+    [TD_NUM2] = ACTION_TAP_DANCE_DOUBLE(KC_2, KC_AT),
+    [TD_NUM3] = ACTION_TAP_DANCE_DOUBLE(KC_3, KC_HASH),
+    [TD_NUM4] = ACTION_TAP_DANCE_DOUBLE(KC_4, KC_DLR),
+    [TD_NUM5] = ACTION_TAP_DANCE_DOUBLE(KC_5, KC_PERC),
+    [TD_NUM6] = ACTION_TAP_DANCE_DOUBLE(KC_6, KC_CIRC),
+    [TD_NUM7] = ACTION_TAP_DANCE_DOUBLE(KC_7, KC_AMPR),
+    [TD_NUM8] = ACTION_TAP_DANCE_DOUBLE(KC_8, KC_ASTR),
+    [TD_NUM9] = ACTION_TAP_DANCE_DOUBLE(KC_9, KC_LPRN),
+    [TD_NUM0] = ACTION_TAP_DANCE_DOUBLE(KC_0, KC_RPRN),
+
+    [TD_MINUS] = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_UNDS),
+    [TD_PLUS] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_PLUS),
+
 };
 
 // Initialize variable holding the binary
@@ -144,6 +165,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;   
         }
+        }
+        case T_TM: 
+        {
+        if (record->event.pressed) {
+            if(user_config.mac_layer_enabled) {
+                register_code(KC_LOPT);
+                register_code(KC_LCMD);
+                register_code(KC_ESC);
+            } else {
+                register_code(KC_LCTL);
+                register_code(KC_LSFT);
+                register_code(KC_ESC);
+            }
+        } else {
+          if(user_config.mac_layer_enabled) {
+                unregister_code(KC_LOPT);
+                unregister_code(KC_LCMD);
+                unregister_code(KC_ESC);
+            } else {
+                unregister_code(KC_LCTL);
+                unregister_code(KC_LSFT);
+                unregister_code(KC_ESC);
+            }
+        }
+            return false;
+
         }
     }
     return true;
