@@ -18,6 +18,7 @@
 #define TK_0 TD(TD_NUM0)
 #define TK_M TD(TD_MINUS)
 #define TK_P TD(TD_PLUS)
+#define TK_FN TD(TD_FN)
 
 typedef union {
   uint32_t raw;
@@ -29,8 +30,7 @@ typedef union {
 
 enum my_keycodes {
   // toggle WIN/MAC (DEFAULT WIN)
-  T_WM = SAFE_RANGE,
-  T_NUM,
+  T_NUM = SAFE_RANGE,
   T_TM
 };
 
@@ -54,7 +54,8 @@ enum {
     TD_NUM9,
     TD_NUM0,
     TD_MINUS,
-    TD_PLUS
+    TD_PLUS,
+    TD_FN
   };
 
 enum layer_names {

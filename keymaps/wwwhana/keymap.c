@@ -12,7 +12,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,     KC_Q,       KC_W,       KC_E,    KC_R,       KC_T,    KC_Y,    KC_U,       KC_I,       KC_O,       KC_P,       KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_DEL,     KC_END,     KC_PGDN,
         KC_CAPS,    KC_A,       KC_S,       KC_D,    KC_F,       KC_G,    KC_H,    KC_J,       KC_K,       KC_L,       KC_SCLN,    KC_QUOT,                KC_ENT,
         KC_LSFT,                KC_Z,       KC_X,    KC_C,       KC_V,    KC_B,    KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,                KC_RSFT,                KC_UP,
-        KC_LCTL,    KC_LGUI,    KC_LALT,                                  KC_SPC,                                      KC_RALT,    MO(_FN),    KC_APP,     KC_RCTL,    KC_LEFT,    KC_DOWN,    KC_RIGHT
+        KC_LCTL,    KC_LGUI,    KC_LALT,                                  KC_SPC,                                      KC_RALT,    TK_FN,      KC_APP,     KC_RCTL,    KC_LEFT,    KC_DOWN,    KC_RIGHT
     ),
     [_MAC] = LAYOUT_k87_ansi(
         _______,                _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,    _______,    _______,    _______,    _______,   _______,
@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		_______,       PB_1,       PB_2,         PB_3,    PB_4,       PB_5,    PB_6,    PB_7,       PB_8,       PB_9,      PB_10,    RGB_SPD,    RGB_SPI,    _______,    RGB_M_P,    RGB_M_B,    RGB_M_R,
 		_______,    _______,    _______,      _______, _______,       T_TM, _______, _______,    _______,    _______,    DM_REC1,    DM_REC2,    DM_RSTP,    _______,    RGB_M_SW,   RGB_MOD,    RGB_RMOD,
 		_______,    _______,    _______,      _______, _______,    _______, _______, _______,    _______,    _______,    DM_PLY1,    DM_PLY2,                _______,
-		_______,                _______,      _______, _______,    _______, _______, _______,       T_WM,    RGB_SAI,    RGB_SAD,      T_NUM,                _______,                RGB_VAI,
+		_______,                _______,      _______, _______,    _______, _______, _______,    _______,    RGB_SAI,    RGB_SAD,      T_NUM,                _______,                RGB_VAI,
 		_______,    _______,    _______,                                    _______,                                     KC_LNG1,    _______,    KC_LNG2,    _______,    RGB_HUD,    RGB_VAD,    RGB_HUI
     ),
 };
@@ -78,6 +78,23 @@ void dance_bootloader_reset(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
+void dance_fn_finished(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        layer_on(_FN);
+    } 
+}
+
+
+void dance_fn_reset(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        layer_off(_FN);
+    } else {
+        user_config.mac_layer_enabled = !user_config.mac_layer_enabled;
+        eeconfig_update_user(user_config.raw);
+        switchWinMacLayer();
+    }
+}
+
 
 qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_RST] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_bootloader_finished, dance_bootloader_reset),
@@ -103,7 +120,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
     [TD_MINUS] = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_UNDS),
     [TD_PLUS] = ACTION_TAP_DANCE_DOUBLE(KC_EQL, KC_PLUS),
-
+    [TD_FN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_fn_finished, dance_fn_reset),
 };
 
 // Initialize variable holding the binary
@@ -144,15 +161,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // Let QMK process the KC_BSPC keycode as usual outside of shift
         return true;
         }
-        case T_WM:
-        {
-        if (record->event.pressed) {
-            user_config.mac_layer_enabled = !user_config.mac_layer_enabled;
-            eeconfig_update_user(user_config.raw);
-            switchWinMacLayer();
-            return false;
-        }
-        }
         case T_NUM:
         {
         if (record->event.pressed) {
@@ -190,7 +198,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
         }
             return false;
-
         }
     }
     return true;
