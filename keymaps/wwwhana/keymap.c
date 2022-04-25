@@ -12,7 +12,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,     KC_Q,       KC_W,       KC_E,    KC_R,       KC_T,    KC_Y,    KC_U,       KC_I,       KC_O,       KC_P,       KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_DEL,     KC_END,     KC_PGDN,
         KC_CAPS,    KC_A,       KC_S,       KC_D,    KC_F,       KC_G,    KC_H,    KC_J,       KC_K,       KC_L,       KC_SCLN,    KC_QUOT,                KC_ENT,
         KC_LSFT,                KC_Z,       KC_X,    KC_C,       KC_V,    KC_B,    KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,                KC_RSFT,                KC_UP,
-        KC_LCTL,    KC_LGUI,    KC_LALT,                                  KC_SPC,                                      KC_RALT,    TK_FN,      KC_APP,     KC_RCTL,    KC_LEFT,    KC_DOWN,    KC_RIGHT
+        KC_LCTL,    KC_LGUI,    KC_LALT,                                  KC_SPC,                                      KC_RALT,    KC_APP,     KC_RCTL,    TK_FN,      KC_LEFT,    KC_DOWN,    KC_RIGHT
     ),
     [_MAC] = LAYOUT_k87_ansi(
         _______,                _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,    _______,    _______,    _______,    KC_BRMD,   KC_BRMU,
@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,       TK_LBR,     TK_RBR,    _______,    _______,    _______,   _______,
         _______,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,      TK_COL,     TK_QUOT,                _______,
         _______,                _______,   _______,  _______,    _______,  _______,  _______,   _______,     TK_LT,      TK_DT,      _______,                _______,                _______,
-        _______,    KC_LOPT,    KC_LCMD,                                   _______,                                     KC_RCMD,     _______,    KC_ROPT,    KC_RCTL,    _______,    _______,    _______
+        _______,    KC_LOPT,    KC_LCMD,                                   _______,                                     KC_RCMD,     KC_ROPT,    KC_RCTL,    _______,    _______,    _______,    _______
     ),
     [_NUM] = LAYOUT_k87_ansi(
 	    _______,                _______,    _______, _______,    _______, _______, _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
