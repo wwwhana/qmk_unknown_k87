@@ -1,23 +1,4 @@
 #define TK_RST TD(TD_RST)
-#define TK_COL TD(TD_COL)
-#define TK_QUOT TD(TD_QUOT)
-#define TK_LBR TD(TD_LBR)
-#define TK_RBR TD(TD_RBR)
-#define TK_LT TD(TD_LT)
-#define TK_DT TD(TD_DT)
-#define TK_T TD(TD_TIL)
-#define TK_1 TD(TD_NUM1)
-#define TK_2 TD(TD_NUM2)
-#define TK_3 TD(TD_NUM3)
-#define TK_4 TD(TD_NUM4)
-#define TK_5 TD(TD_NUM5)
-#define TK_6 TD(TD_NUM6)
-#define TK_7 TD(TD_NUM7)
-#define TK_8 TD(TD_NUM8)
-#define TK_9 TD(TD_NUM9)
-#define TK_0 TD(TD_NUM0)
-#define TK_M TD(TD_MINUS)
-#define TK_P TD(TD_PLUS)
 #define TK_FN TD(TD_FN)
 
 typedef union {
@@ -31,7 +12,8 @@ typedef union {
 enum my_keycodes {
   // toggle WIN/MAC (DEFAULT WIN)
   T_NUM = SAFE_RANGE,
-  T_TM
+  T_TM,
+  T_MLNG
 };
 
 enum {

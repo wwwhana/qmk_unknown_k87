@@ -5,8 +5,7 @@
     "debounce": 5,
     "usb": {
         "vid": "0x320F",
-        "pid": "0x504C",
-        "device_version": "1.0.1"
+        "pid": "0x504C"
     },
     "width": 17,
     "height": 6,
