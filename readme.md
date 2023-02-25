@@ -16,6 +16,7 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
 
 ## Required
  * [SonixQMK](https://github.com/SonixQMK/qmk_firmware)
+ * tested commit a46e96cdd01cffc32d369c9317808799166f1ace
 
 ## device info
  * VENDOR ID `0x320F`
