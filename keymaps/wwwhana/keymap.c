@@ -61,13 +61,6 @@ void eeconfig_init_user(void) {
   switchWinMacLayer();
 }
 
-
-void dance_bootloader_finished(qk_tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        // register_code16(KC_ESC);
-    }
-}
-
 void dance_bootloader_reset(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
         eeconfig_init();
@@ -95,7 +88,7 @@ void dance_fn_reset(qk_tap_dance_state_t *state, void *user_data) {
 }
 
 qk_tap_dance_action_t tap_dance_actions[] = {
-    [TD_RST] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_bootloader_finished, dance_bootloader_reset),
+    [TD_RST] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, NULL, dance_bootloader_reset),
     [TD_FN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_fn_finished, dance_fn_reset),
 };
 
