@@ -6,7 +6,7 @@
 user_config_t user_config;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT_k87_ansi(
+    [_BASE] = LAYOUT_ansi(
         KC_ESC,                 KC_F1,      KC_F2,   KC_F3,      KC_F4,   KC_F5,   KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,     KC_PSCR,    KC_SCRL,    KC_PAUSE,
         KC_GRV,     KC_1,       KC_2,       KC_3,    KC_4,       KC_5,    KC_6,    KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,    KC_EQL,     KC_BSPC,    KC_INS,     KC_HOME,    KC_PGUP,
         KC_TAB,     KC_Q,       KC_W,       KC_E,    KC_R,       KC_T,    KC_Y,    KC_U,       KC_I,       KC_O,       KC_P,       KC_LBRC,    KC_RBRC,    KC_BSLS,    KC_DEL,     KC_END,     KC_PGDN,
@@ -14,29 +14,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT,                KC_Z,       KC_X,    KC_C,       KC_V,    KC_B,    KC_N,       KC_M,       KC_COMM,    KC_DOT,     KC_SLSH,                KC_RSFT,                KC_UP,
         KC_LCTL,    KC_LGUI,    KC_LALT,                                  KC_SPC,                                      KC_RALT,    TD(TD_FN),  KC_APP,     KC_RCTL,    KC_LEFT,    KC_DOWN,    KC_RIGHT
     ),
-    [_MAC] = LAYOUT_k87_ansi(
+    [_MAC] = LAYOUT_ansi(
         _______,                _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,    _______,    _______,     KC_F13,     KC_F14,    KC_F15,
         _______,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,    _______,    _______,    _______,    _______,   _______,
         _______,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,    _______,    _______,    _______,    _______,   _______,
-         T_MLNG,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,                _______,
+        _______,    _______,    _______,   _______,  _______,    _______,  _______,  _______,   _______,   _______,    _______,      _______,                _______,
         _______,                _______,   _______,  _______,    _______,  _______,  _______,   _______,  _______,     _______,      _______,                _______,                _______,
         _______,    KC_LOPT,    KC_LCMD,                                   _______,                                    KC_RCMD,      _______,    KC_ROPT,    KC_RCTL,    _______,    _______,    _______
     ),
-    [_NUM] = LAYOUT_k87_ansi(
+    [_NUM] = LAYOUT_ansi(
 	    _______,                _______,    _______, _______,    _______, _______, _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,    _______,
 	    _______,    KC_ACL0,    KC_ACL1,    KC_ACL2, _______,    _______, _______, _______,    _______,    KC_PDOT,    KC_PAST,    KC_PMNS,    KC_PPLS,    KC_BSPC,    _______,    _______,    _______,
 	    KC_BTN3,    KC_BTN1,    KC_MS_U,    KC_BTN2, _______,    _______, _______, _______,    _______,      KC_P7,      KC_P8,      KC_P9,     KC_NUM,    KC_PSLS,    _______,    _______,    _______,
 	    _______,    KC_MS_L,    KC_MS_D,    KC_MS_R, _______,    _______, _______, _______,    _______,      KC_P4,      KC_P5,      KC_P6,                KC_PENT,
-	    _______,                _______,    _______, _______,    _______, _______, _______,    _______,      KC_P1,      KC_P2,      KC_P3,                _______,                _______,
-	    _______,    _______,    _______,                                    KC_P0,                                     _______,    _______,    _______,    _______,    _______,    _______,    _______
+	    _______,                _______,    _______, _______,    _______, _______, _______,    _______,      KC_P1,      KC_P2,      KC_P3,                _______,                KC_WH_U,
+	    _______,    _______,    _______,                                    KC_P0,                                     _______,    _______,    _______,    _______,    KC_WH_L,    KC_WH_D,    KC_WH_R
     ),
-    [_FN] = LAYOUT_k87_ansi(
-	    TD(TD_RST),             KC_BRMD,      KC_BRMU, _______,    _______, _______, _______,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,    NK_ON,      NK_OFF,     RGB_TOG,
-		_______,    _______,    _______,      _______, _______,    _______, _______, _______,    _______,    _______,    _______,    RGB_SPD,    RGB_SPI,    RGB_VAI,    RGB_M_P,    RGB_M_B,    RGB_M_R,
-		_______,    _______,    _______,      _______, _______,       T_TM, _______, _______,    _______,    _______,    _______,    RGB_SAI,    RGB_SAD,    RGB_VAD,    RGB_M_SW,   RGB_MOD,    RGB_RMOD,
-		KC_CAPS,    _______,    _______,      _______, _______,    _______, _______, _______,    _______,    _______,    _______,    _______,                RGB_HUI,
-		_______,                _______,      _______, _______,    _______, _______, _______,    _______,    _______,    _______,      T_NUM,                RGB_HUD,                KC_WH_U,
-		_______,    _______,    _______,                                    _______,                                     KC_LNG1,    _______,     KC_APP,    KC_LNG2,    KC_WH_L,    KC_WH_D,    KC_WH_R
+    [_FN] = LAYOUT_ansi(
+	    TD(TD_RST),             KC_BRMD,      KC_BRMU, KC_SLEP,    KC_WAKE, _______, _______,    KC_MPRV,    KC_MPLY,    KC_MNXT,    KC_MUTE,    KC_VOLD,    KC_VOLU,    NK_ON,      NK_OFF,     RGB_TOG,
+		_______,    _______,    _______,      _______, _______,    _______, _______, _______,    _______,    _______,    _______,    RGB_SPD,    RGB_SPI,    _______,    RGB_M_P,    RGB_M_B,    RGB_M_R,
+		_______,    _______,    _______,      _______, _______,       T_TM, _______, _______,    _______,    _______,    _______,    RGB_SAI,    RGB_SAD,    _______,    RGB_M_SW,   RGB_MOD,    RGB_RMOD,
+		_______,    _______,    _______,      _______, _______,    _______, _______, _______,    _______,    _______,    _______,    _______,                _______,
+		_______,                _______,      _______, _______,    _______, _______, _______,    _______,    _______,    _______,      T_NUM,                _______,                RGB_VAI,
+		_______,    _______,    _______,                                    _______,                                     KC_LNG1,    _______,     KC_APP,    KC_LNG2,    RGB_HUD,    RGB_VAD,    RGB_HUI
     ),
 };
 
@@ -95,10 +95,8 @@ tap_dance_action_t tap_dance_actions[] = {
 
 const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
 
-// This globally defines all key overrides to be used
-const key_override_t **key_overrides = (const key_override_t *[]){
+const key_override_t *key_overrides[] = {
     &delete_key_override,
-    NULL // Null terminate the array of overrides!
 };
 
 // Initialize variable holding the binary
@@ -157,3 +155,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 };
+
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    if (host_keyboard_led_state().caps_lock) {
+        rgb_matrix_set_color(50, 0, 0, 255);
+    }
+
+    if(!user_config.mac_layer_enabled) {
+        // RGB_MATRIX_INDICATOR_SET_COLOR(81, 0, 0, 255);
+
+        if (host_keyboard_led_state().scroll_lock) {
+            rgb_matrix_set_color(14, 0, 0, 255);
+        }
+    } else {
+        rgb_matrix_set_color(81, 0, 0, 255);
+    }
+
+    return false;
+}
