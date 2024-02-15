@@ -2,7 +2,8 @@
     "name": "K87",
     "vendorId": "0x320F",
     "productId": "0x504C",
-    "lighting": "qmk_rgblight",
+    "keycodes": ["qmk_lighting"],
+    "menus": ["qmk_rgb_matrix"],
     "matrix": {"rows": 6, "cols": 17},
     "layouts": {
         "keymap": [

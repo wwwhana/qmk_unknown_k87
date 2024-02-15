@@ -4,7 +4,6 @@ Unknown K87
 chinese unknown brand k87 gaming keyboard
 
 Keyboard Maintainer: [Lexia Lim](https://github.com/wwwhana)
-Based on Kemove DK63 by: [Stephen Peery](https://github.com/smp4488)
 Hardware Supported: SN32F248BF
 
 Make example for this keyboard (after setting up your build environment):
@@ -16,7 +15,6 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
 
 ## Required
  * [SonixQMK](https://github.com/SonixQMK/qmk_firmware)
- * tested commit a46e96cdd01cffc32d369c9317808799166f1ace
 
 ## device info
  * VENDOR ID `0x320F`
