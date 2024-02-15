@@ -16,38 +16,12 @@
 
 #pragma once
 
-#include "config_common.h"
+// #include "config_common.h"
 
-/* USB Device descriptor parameter */
-#define VENDOR_ID 0x320F
-#define PRODUCT_ID 0x504C
-#define DEVICE_VER 0x0001
-
-#define USB_MAX_POWER_CONSUMPTION 200
-
-#define MANUFACTURER EVISION
-#define PRODUCT K87
-#define DESCRIPTION K87
-
-/* key matrix size */
-#define MATRIX_ROWS 6
-#define MATRIX_COLS 17
 
 #define MATRIX_UNSELECT_DRIVE_HIGH
-#define DIODE_DIRECTION COL2ROW
 
-#define MATRIX_COL_PINS \
-    { A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, B0, B1 }
+#define RGB_MATRIX_LED_COUNT (87)
+#define SN32_RGB_MATRIX_ROW_PINS { C0, C1, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, B6,  B7,  B8,  B9, B10, B11 }
 
-#define MATRIX_ROW_PINS \
-    { C15, D11, D10, D9, D8, D7 }
-
-/* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
-#define DEBOUNCE 5
-
-/* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-//#define LOCKING_SUPPORT_ENABLE
-/* Locking resynchronize hack */
-//#define LOCKING_RESYNC_ENABLE
-
-#include "config_led.h"
+// #define DRIVER_LED_TOTAL (90)
